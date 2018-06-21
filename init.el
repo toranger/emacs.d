@@ -7,13 +7,17 @@
 ;; Use the emacschina https://emacs-china.org/
 (require 'package)
 (setq package-archives '(
+                         ("myelpa" . "~/myelpa/")
+                         ;; add the github for own myelpa
+                         ("mygelpa" . "https://github.com/toranger/myelpa/master")
                          ("gnu"   . "http://elpa.emacs-china.org/gnu/")
                          ("melpa" . "http://elpa.emacs-china.org/melpa/")
                          ("melpa-stable" . "http://elpa.emacs-china.org/melpa-stable/")
                          ("org" . "http://elpa.emacs-china.org/org/")
-                         ("myelpa" . "~/myelpa/")
 
                          ))
+
+;; init
 (package-initialize)
 ;; also can use the https://github.com/quelpa/quelpa 
 ;; elpa-mirror
@@ -21,8 +25,6 @@
 (add-to-list 'load-path "~/.emacs.d/elpa-mirror/")
 (require 'elpa-mirror)
 (setq elpamr-default-output-directory "~/myelpa")
-;;(add-to-list 'package-archives '("myelpa" . "https://raw.githubusercontent.com/redguardtoo/myelpa/master/"))
-;; add the github for own myelpa
 
 (global-auto-revert-mode 1)
 (set-language-environment "utf-8")
@@ -89,6 +91,7 @@
 
   "n" 'xref-find-definitions
   "m" 'xref-pop-marker-stack
+  "g" 'godef-jump
 )
 
 
