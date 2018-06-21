@@ -1,0 +1,1105 @@
+
+tmd@debiant:~/.emacs.d/rtags$ ls
+automated_tests  clang.sup       CMakeFiles           compile_commands.json  CTestTestfile.cmake    Makefile    scripts  Testing          web
+bin              cmake           cmake_install.cmake  completions            DartConfiguration.tcl  man         share    tests
+build            CMakeCache.txt  CMakeLists.txt       configure              LICENSE.txt            README.org  src      Uninstall.cmake
+tmd@debiant:~/.emacs.d/rtags$ ps aux | grep rdm
+tmd      109209  0.0  1.9 171052 19824 pts/6    Sl   20:31   0:00 ./bin/rdm
+tmd      115196  0.0  0.0  12784   940 pts/8    S+   23:20   0:00 grep rdm
+tmd@debiant:~/.emacs.d/rtags$ cd src
+tmd@debiant:~/.emacs.d/rtags/src$ l
+bash: l: command not found
+tmd@debiant:~/.emacs.d/rtags/src$ ls
+ac-rtags.el            compile-shim.elisp     helm-rtags.el           ListSymbolsJob.h    RClient.cpp                 ScanThread.h
+ac-rtags.elc           CompletionThread.cpp   helm-rtags.elc          Location.cpp        RClient.h                   selene
+AST.cpp                CompletionThread.h     include                 Location.h          rct                         Server.cpp
+AST.h                  DependenciesJob.cpp    IncludeFileJob.cpp      LogObject.h         rdm.cpp                     Server.h
+ClangIndexer.cpp       DependenciesJob.h      IncludeFileJob.h        LogOutputMessage.h  ReferencesJob.cpp           Source.cpp
+ClangIndexer.h         Diagnostic.h           IncludeTypesInternal.h  lua                 ReferencesJob.h             Source.h
+clangtest.cpp          FileManager.cpp        IndexDataMessage.h      Makefile            rp.cpp                      StatusJob.cpp
+ClangThread.cpp        FileManager.h          IndexerJob.cpp          Match.h             rtags-bash-completion.bash  StatusJob.h
+ClangThread.h          FileMap.h              IndexerJob.h            Preprocessor.cpp    RTags.cpp                   Symbol.cpp
+ClassHierarchyJob.cpp  Filter.h               IndexMessage.cpp        Preprocessor.h      rtags.el                    Symbol.h
+ClassHierarchyJob.h    FindFileJob.cpp        IndexMessage.h          ProcThread.cpp      rtags.elc                   SymbolInfoJob.cpp
+CMakeFiles             FindFileJob.h          IndexParseData.cpp      ProcThread.h        RTags.h                     SymbolInfoJob.h
+cmake_install.cmake    FindSymbolsJob.cpp     IndexParseData.h        Project.cpp         RTagsLogOutput.h            Token.cpp
+CMakeLists.txt         FindSymbolsJob.h       ivy-rtags.el            Project.h           rtags.lua                   Token.h
+CommandLineParser.h    FixIt.h                ivy-rtags.elc           QueryJob.cpp        RTagsMessage.h              TokensJob.cpp
+company-rtags.el       flycheck-rtags.el      JobScheduler.cpp        QueryJob.h          RTagsVersion.h.in           TokensJob.h
+company-rtags.elc      flycheck-rtags.elc     JobScheduler.h          QueryMessage.cpp    Sandbox.cpp                 VisitFileMessage.h
+CompilerManager.cpp    FollowLocationJob.cpp  librtags.a              QueryMessage.h      Sandbox.h                   VisitFileResponseMessage.h
+CompilerManager.h      FollowLocationJob.h    ListSymbolsJob.cpp      rc.cpp              ScanThread.cpp
+tmd@debiant:~/.emacs.d/rtags/src$ cd /bin/
+tmd@debiant:/bin$ ls
+bash          chown          findmnt     lesskey     mv              ntfsrecover   run-parts             systemd-machine-id-setup        which
+bunzip2       chvt           fuser       lesspipe    nano            ntfssecaudit  sed                   systemd-notify                  ypdomainname
+busybox       cp             fusermount  ln          nc              ntfstruncate  setfacl               systemd-sysusers                zcat
+bzcat         cpio           getfacl     loadkeys    nc.traditional  ntfsusermap   setfont               systemd-tmpfiles                zcmp
+bzcmp         dash           grep        login       netcat          ntfswipe      setupcon              systemd-tty-ask-password-agent  zdiff
+bzdiff        date           gunzip      loginctl    netstat         open          sh                    tailf                           zegrep
+bzegrep       dd             gzexe       lowntfs-3g  networkctl      openvt        sh.distrib            tar                             zfgrep
+bzexe         df             gzip        ls          nisdomainname   pidof         sleep                 tempfile                        zforce
+bzfgrep       dir            hciconfig   lsblk       ntfs-3g         ping          ss                    touch                           zgrep
+bzgrep        dmesg          hostname    lsmod       ntfs-3g.probe   ping4         stty                  true                            zless
+bzip2         dnsdomainname  ip          mkdir       ntfscat         ping6         su                    udevadm                         zmore
+bzip2recover  domainname     journalctl  mknod       ntfscluster     ps            sync                  ulockmgr_server                 znew
+bzless        dumpkeys       kbd_mode    mktemp      ntfscmp         pwd           systemctl             umount
+bzmore        echo           kill        more        ntfsfallocate   rbash         systemd               uname
+cat           egrep          kmod        mount       ntfsfix         readlink      systemd-ask-password  uncompress
+chacl         false          less        mountpoint  ntfsinfo        rm            systemd-escape        unicode_start
+chgrp         fgconsole      lessecho    mt          ntfsls          rmdir         systemd-hwdb          vdir
+chmod         fgrep          lessfile    mt-gnu      ntfsmove        rnano         systemd-inhibit       wdctl
+tmd@debiant:/bin$ ./r
+rbash      readlink   rm         rmdir      rnano      run-parts  
+tmd@debiant:/bin$ cd ..
+tmd@debiant:/$ ls
+bin   data  etc   initrd.img      lib    lost+found  mnt  proc  run   srv  tmp  var      vmlinuz.old
+boot  dev   home  initrd.img.old  lib64  media       opt  root  sbin  sys  usr  vmlinuz
+tmd@debiant:/$ cd ~/.emacs.d/
+tmd@debiant:~/.emacs.d$ ls
+~                auto-save-list  emacs-color-theme-solarized  init.el   pk     recentf   rtags       tramp
+ac-comphist.dat  elpa            global-6.6.2.tar.gz          init.el~  ~.pub  recentf~  smex-items
+tmd@debiant:~/.emacs.d$ cd rtags
+tmd@debiant:~/.emacs.d/rtags$ ls
+automated_tests  clang.sup       CMakeFiles           compile_commands.json  CTestTestfile.cmake    Makefile    scripts  Testing          web
+bin              cmake           cmake_install.cmake  completions            DartConfiguration.tcl  man         share    tests
+build            CMakeCache.txt  CMakeLists.txt       configure              LICENSE.txt            README.org  src      Uninstall.cmake
+tmd@debiant:~/.emacs.d/rtags$ cd bin/
+tmd@debiant:~/.emacs.d/rtags/bin$ ls
+cc_prefix.sh  gcc-rtags-hook.sh  gcc-rtags-wrapper.sh  rc  rdm  rp  rtags-gcc-prefix.sh
+tmd@debiant:~/.emacs.d/rtags/bin$ r
+Display all 104 possibilities? (y or n)
+tmd@debiant:~/.emacs.d/rtags/bin$ rc
+rcp     rctest  
+tmd@debiant:~/.emacs.d/rtags/bin$ rc
+rcp     rctest  
+tmd@debiant:~/.emacs.d/rtags/bin$ ls
+cc_prefix.sh  gcc-rtags-hook.sh  gcc-rtags-wrapper.sh  rc  rdm  rp  rtags-gcc-prefix.sh
+tmd@debiant:~/.emacs.d/rtags/bin$ ./rc -J /home/tmd/workstation/cos
+cos4.20.3/        cos4.20.3.tar.gz  cos-config/       cos-cpp-sdk-v5/   cosfs/            
+tmd@debiant:~/.emacs.d/rtags/bin$ ./rc -J /home/tmd/workstation/cos-cpp-sdk-v5/
+no compile_commands.json file in /home/tmd/workstation/cos-cpp-sdk-v5/compile_commands.json
+Try 'rc --help' for more information.
+tmd@debiant:~/.emacs.d/rtags/bin$ ls
+cc_prefix.sh  gcc-rtags-hook.sh  gcc-rtags-wrapper.sh  rc  rdm  rp  rtags-gcc-prefix.sh
+tmd@debiant:~/.emacs.d/rtags/bin$ cd ~/
+tmd@debiant:~$ ls
+agent                                   cmake-3.11.1.tar.gz  evil                         haha                     *message*-20180523-010350  tst
+agent.go                                cos-config-bak       global-6.6.2                 iain                     README.md                  tst_go
+agnet                                   cos-cpp-sdk-v5       go1.10.2.linux-amd64.tar.gz  json.test                sts_blog                   what
+bazel-0.13.0-installer-linux-x86_64.sh  diff                 go1.10.linux-amd64.tar.gz    l5agent-bit64-4.3.0      swiper                     what.bak
+big_custom_migration                    Downloads            gostation                    l5agent-bit64-4.3.0.tgz  teg2etcd.ini               workstation
+bin                                     emacs                go_test                      log                      teg.ini
+blade                                   emacs.b              grpc                         main                     tenc.org
+blade_inside                            emacs.bbb            grpc_c++                     main.go                  test
+cmake-3.11.1                            emacs_ha             grpc.tar.gz                  mem.txt                  test_main
+tmd@debiant:~$ cd workstation/
+cos4.20.3/      cos-config/     cos-cpp-sdk-v5/ cosfs/          go-cos/         going_proj/     own-cos-config/ rtags/          test/
+tmd@debiant:~$ cd workstation/cos-cpp-sdk-v5/
+tmd@debiant:~/workstation/cos-cpp-sdk-v5$ ls
+build  CMakeLists.txt  cos-cpp-sdk.md  demo  Doxyfile  gen_lcov.sh  include  lib  LICENSE  README.md  src  unittest
+tmd@debiant:~/workstation/cos-cpp-sdk-v5$ make clean'
+> ^C
+tmd@debiant:~/workstation/cos-cpp-sdk-v5$ make clean
+make: *** No rule to make target 'clean'.  Stop.
+tmd@debiant:~/workstation/cos-cpp-sdk-v5$ make -nk | rc -c -
+bash: rc: command not found
+make: *** No targets specified and no makefile found.  Stop.
+tmd@debiant:~/workstation/cos-cpp-sdk-v5$ make -nk | ~/.emacs.d/rtags/bin/rc -c -
+make: *** No targets specified and no makefile found.  Stop.
+/home/tmd/.emacs.d/rtags/bin/rc options...
+Options:
+  --verbose|-v                           Be more verbose.
+  --version                              Print current version.
+  --verify-version [arg]                 Verify that the correct protocol version is used.
+  --silent|-Q                            Be silent.
+  --help|-h                              Display this help.
+  --config [arg]                         Use this file (instead of ~/.rcrc).
+  --no-rc                                Don't load any rc files.
+
+Rdm:
+  --quit-rdm|-q                          Tell server to shut down with optional exit code as argument.
+  --connect-timeout [arg]                Timeout for connecting to rdm in ms (default 1000).
+
+Project management:
+  --clear|-C                             Clear projects.
+  --project|-w [optional]                With arg, select project matching that if unique, otherwise list all projects.
+  --delete-project|-W [arg]              Delete all projects matching regex.
+  --job-count|-j [optional]              Set or query current job count. (Prefix with l to set low-priority-job-count).
+
+Indexing commands:
+  --compile|-c [optional]                Pass compilation arguments to rdm.
+  --guess-flags                          Guess compile flags (used with -c).
+  --load-compile-commands|-J [optional]  Load compile_commands.json from directory
+  --suspend|-X [optional]                Dump suspended files (don't track changes in these files) with no arg. Otherwise toggle suspension for arg.
+
+Query commands:
+  --follow-location|-f [arg]             Follow this location.
+  --references-name|-R [arg]             Find references matching arg.
+  --references|-r [arg]                  Find references matching this location.
+  --list-symbols|-S [optional]           List symbol names matching arg.
+  --find-symbols|-F [optional]           Find symbols matching arg.
+  --symbol-info|-U [arg]                 Get cursor info for this location.
+  --status|-s [optional]                 Dump status of rdm. Arg can be symbols or symbolNames.
+  --diagnose [arg]                       Resend diagnostics for file.
+  --diagnose-all                         Resend diagnostics for all files.
+  --is-indexed|-T [arg]                  Check if rtags knows about, and is ready to return information about, this source file.
+  --is-indexing                          Check if rtags is currently indexing files.
+  --has-filemanager [optional]           Check if rtags has info about files in this directory.
+  --preprocess|-E [arg]                  Preprocess file.
+  --reindex|-V [optional]                Reindex all files or all files matching pattern.
+  --check-reindex|-x [optional]          Check if reindexing is necessary for all files matching pattern.
+  --path|-P [optional]                   Print files matching pattern.
+  --current-project                      Print path for current project.
+  --dump-file|-d [arg]                   Dump source file.
+  --check-includes [arg]                 Check includes for source file.
+  --dump-file-maps [arg]                 Dump file maps for file.
+  --generate-test [arg]                  Generate a test for a given source file.
+  --rdm-log|-g                           Receive logs from rdm.
+  --fixits [arg]                         Get fixits for file.
+  --remove|-D [arg]                      Remove file from project.
+  --find-project-root [arg]              Use to check behavior of find-project-root.
+  --find-project-build-root [arg]        Use to check behavior of find-project-root for builds.
+  --include-file [arg]                   Use to generate include statement for symbol.
+  --sources [optional]                   Dump sources for source file.
+  --dependencies [arg]                   Dump dependencies for source file [(includes, included-by, depends-on, depended-on, tree-depends-on, raw)].
+  --all-dependencies                     Dump dependencies for all source files [(includes, included-by, depends-on, depended-on, tree-depends-on, raw)].
+  --reload-file-manager|-B               Reload file manager.
+  --man                                  Output XML for xmltoman to generate man page for rc :-)
+  --code-complete-at|-l [arg]            Code complete at location: arg is file:line:col.
+  --send-diagnostics [arg]               Only for debugging. Send data to all -G connections.
+  --dump-completions                     Dump cached completions.
+  --dump-compile-commands                Dump compilation database for project.
+  --set-buffers [optional]               Set active buffers (list of filenames for active buffers in editor).
+  --list-buffers                         List active buffers.
+  --add-buffers [arg]                    Add additional buffers.
+  --remove-buffers [arg]                 Remove buffers.
+  --list-cursor-kinds                    List spelling for known cursor kinds.
+  --class-hierarchy [arg]                Dump class hierarcy for struct/class at location.
+  --debug-locations [optional]           Manipulate debug locations.
+  --validate                             Validate database files for current project.
+  --tokens [arg]                         Dump tokens for file. --tokens file.cpp:123-321 for range.
+
+Command flags:
+  --strip-paren|-p                       Strip parens in various contexts.
+  --max|-M [arg]                         Max lines of output for queries.
+  --reverse-sort|-O                      Sort output reversed.
+  --rename                               Used for --references to indicate that we're using the results to rename symbols.
+  --unsaved-file [arg]                   Pass unsaved file on command line. E.g. --unsaved-file=main.cpp:1200 then write 1200 bytes on stdin.
+  --log-file|-L [arg]                    Log to this file.
+  --no-context|-N                        Don't print context for locations.
+  --path-filter|-i [arg]                 Filter out results not matching with arg.
+  --dependency-filter [arg]              Filter out results unless argument depends on them.
+  --range-filter [arg]                   Filter out results not in the specified range.
+  --filter-system-headers|-H             Don't exempt system headers from path filters.
+  --all-references|-e                    Include definitions/declarations/constructors/destructors for references. Used for rename symbol.
+  --target-usrs                          Print all matching usr targets for -f. Used for debugging.
+  --all-targets                          Print multiple targets for -f. Sorted by best match.
+  --elisp|-Y                             Output elisp: (list "one" "two" ...).
+  --json                                 Output json.
+  --diagnostics|-m                       Receive async formatted diagnostics from rdm.
+  --match-regexp|-Z                      Treat various text patterns as regexps (-P, -i, -V, -F).
+  --match-icase|-I                       Match case insensitively
+  --absolute-path|-K                     Print files with absolute path.
+  --socket-file|-n [arg]                 Use this socket file (default ~/.rdm).
+  --socket-address [arg]                 Use this host:port combination (instead of --socket-file).
+  --timeout|-y [arg]                     Max time in ms to wait for job to finish (default no timeout).
+  --find-virtuals|-k                     Use in combinations with -R or -r to show other implementations of this function.
+  --find-file-prefer-exact|-A            Use to make --find-file prefer exact matches over partial matches.
+  --symbol-info-include-parents          Use to make --symbol-info include parent symbols.
+  --symbol-info-include-targets          Use to make --symbol-info include target symbols.
+  --symbol-info-include-references       Use to make --symbol-info include reference symbols.
+  --symbol-info-include-base-classes     Use to make --symbol-info include baseclasses' symbols.
+  --cursor-kind                          Include cursor kind in --find-symbols output.
+  --display-name                         Include display name in --find-symbols output.
+  --current-file [arg]                   Pass along which file is being edited to give rdm a better chance at picking the right project.
+  --declaration-only|-G                  Filter out definitions (unless inline).
+  --definition-only                      Filter out declarations (unless inline).
+  --kind-filter [arg]                    Only return results matching this kind.
+  --containing-function|-o               Include name of containing function in output.
+  --containing-function-location         Include location of containing function in output.
+  --build-index [arg]                    For sources with multiple builds, use the arg'th.
+  --compilation-flags-only               For --source, only print compilation flags.
+  --compilation-flags-split-line         For --source, print one compilation flag per line.
+  --compilation-flags-pwd                For --source, print pwd for compile command on the first line.
+  --dump-include-headers                 For --dump-file, also dump dependencies.
+  --silent-query                         Don't log this request in rdm.
+  --synchronous-completions              Wait for completion results and print them to stdout.
+  --synchronous-diagnostics              Wait for diagnostics and print them to stdout.
+  --xml                                  Output XML
+  --no-sort-references-by-input          Don't sort references by input position.
+  --project-root [arg]                   Override project root for compile commands.
+  --rtags-config [arg]                   Print out .rtags-config for argument.
+  --wildcard-symbol-names|-a             Expand * like wildcards in --list-symbols and --find-symbols.
+  --no-color|-z                          Don't colorize context.
+  --wait                                 Wait for reindexing to finish.
+  --code-complete-include-macros         Include macros in code completion results.
+  --code-complete-includes               Give includes in completion results.
+  --code-complete-no-wait                Don't wait for synchronous completion if the translation unit has to be created.
+  --code-complete-prefix [arg]           Filter out code completion results that don't start with this prefix.
+  --code-completion-enabled|-b           Inform rdm that we're code-completing. Use with --diagnose
+  --no-spell-checking                    Don't produce spell check info in diagnostics.
+  --tokens-include-symbols               Include symbols for tokens.
+  --no-realpath                          Don't resolve paths using realpath(3).
+
+No commands
+tmd@debiant:~/workstation/cos-cpp-sdk-v5$ make -nk | ~/.emacs.d/rtags/bin/rc -c -
+make: *** No targets specified and no makefile found.  Stop.
+/home/tmd/.emacs.d/rtags/bin/rc options...
+Options:
+  --verbose|-v                           Be more verbose.
+  --version                              Print current version.
+  --verify-version [arg]                 Verify that the correct protocol version is used.
+  --silent|-Q                            Be silent.
+  --help|-h                              Display this help.
+  --config [arg]                         Use this file (instead of ~/.rcrc).
+  --no-rc                                Don't load any rc files.
+
+Rdm:
+  --quit-rdm|-q                          Tell server to shut down with optional exit code as argument.
+  --connect-timeout [arg]                Timeout for connecting to rdm in ms (default 1000).
+
+Project management:
+  --clear|-C                             Clear projects.
+  --project|-w [optional]                With arg, select project matching that if unique, otherwise list all projects.
+  --delete-project|-W [arg]              Delete all projects matching regex.
+  --job-count|-j [optional]              Set or query current job count. (Prefix with l to set low-priority-job-count).
+
+Indexing commands:
+  --compile|-c [optional]                Pass compilation arguments to rdm.
+  --guess-flags                          Guess compile flags (used with -c).
+  --load-compile-commands|-J [optional]  Load compile_commands.json from directory
+  --suspend|-X [optional]                Dump suspended files (don't track changes in these files) with no arg. Otherwise toggle suspension for arg.
+
+Query commands:
+  --follow-location|-f [arg]             Follow this location.
+  --references-name|-R [arg]             Find references matching arg.
+  --references|-r [arg]                  Find references matching this location.
+  --list-symbols|-S [optional]           List symbol names matching arg.
+  --find-symbols|-F [optional]           Find symbols matching arg.
+  --symbol-info|-U [arg]                 Get cursor info for this location.
+  --status|-s [optional]                 Dump status of rdm. Arg can be symbols or symbolNames.
+  --diagnose [arg]                       Resend diagnostics for file.
+  --diagnose-all                         Resend diagnostics for all files.
+  --is-indexed|-T [arg]                  Check if rtags knows about, and is ready to return information about, this source file.
+  --is-indexing                          Check if rtags is currently indexing files.
+  --has-filemanager [optional]           Check if rtags has info about files in this directory.
+  --preprocess|-E [arg]                  Preprocess file.
+  --reindex|-V [optional]                Reindex all files or all files matching pattern.
+  --check-reindex|-x [optional]          Check if reindexing is necessary for all files matching pattern.
+  --path|-P [optional]                   Print files matching pattern.
+  --current-project                      Print path for current project.
+  --dump-file|-d [arg]                   Dump source file.
+  --check-includes [arg]                 Check includes for source file.
+  --dump-file-maps [arg]                 Dump file maps for file.
+  --generate-test [arg]                  Generate a test for a given source file.
+  --rdm-log|-g                           Receive logs from rdm.
+  --fixits [arg]                         Get fixits for file.
+  --remove|-D [arg]                      Remove file from project.
+  --find-project-root [arg]              Use to check behavior of find-project-root.
+  --find-project-build-root [arg]        Use to check behavior of find-project-root for builds.
+  --include-file [arg]                   Use to generate include statement for symbol.
+  --sources [optional]                   Dump sources for source file.
+  --dependencies [arg]                   Dump dependencies for source file [(includes, included-by, depends-on, depended-on, tree-depends-on, raw)].
+  --all-dependencies                     Dump dependencies for all source files [(includes, included-by, depends-on, depended-on, tree-depends-on, raw)].
+  --reload-file-manager|-B               Reload file manager.
+  --man                                  Output XML for xmltoman to generate man page for rc :-)
+  --code-complete-at|-l [arg]            Code complete at location: arg is file:line:col.
+  --send-diagnostics [arg]               Only for debugging. Send data to all -G connections.
+  --dump-completions                     Dump cached completions.
+  --dump-compile-commands                Dump compilation database for project.
+  --set-buffers [optional]               Set active buffers (list of filenames for active buffers in editor).
+  --list-buffers                         List active buffers.
+  --add-buffers [arg]                    Add additional buffers.
+  --remove-buffers [arg]                 Remove buffers.
+  --list-cursor-kinds                    List spelling for known cursor kinds.
+  --class-hierarchy [arg]                Dump class hierarcy for struct/class at location.
+  --debug-locations [optional]           Manipulate debug locations.
+  --validate                             Validate database files for current project.
+  --tokens [arg]                         Dump tokens for file. --tokens file.cpp:123-321 for range.
+
+Command flags:
+  --strip-paren|-p                       Strip parens in various contexts.
+  --max|-M [arg]                         Max lines of output for queries.
+  --reverse-sort|-O                      Sort output reversed.
+  --rename                               Used for --references to indicate that we're using the results to rename symbols.
+  --unsaved-file [arg]                   Pass unsaved file on command line. E.g. --unsaved-file=main.cpp:1200 then write 1200 bytes on stdin.
+  --log-file|-L [arg]                    Log to this file.
+  --no-context|-N                        Don't print context for locations.
+  --path-filter|-i [arg]                 Filter out results not matching with arg.
+  --dependency-filter [arg]              Filter out results unless argument depends on them.
+  --range-filter [arg]                   Filter out results not in the specified range.
+  --filter-system-headers|-H             Don't exempt system headers from path filters.
+  --all-references|-e                    Include definitions/declarations/constructors/destructors for references. Used for rename symbol.
+  --target-usrs                          Print all matching usr targets for -f. Used for debugging.
+  --all-targets                          Print multiple targets for -f. Sorted by best match.
+  --elisp|-Y                             Output elisp: (list "one" "two" ...).
+  --json                                 Output json.
+  --diagnostics|-m                       Receive async formatted diagnostics from rdm.
+  --match-regexp|-Z                      Treat various text patterns as regexps (-P, -i, -V, -F).
+  --match-icase|-I                       Match case insensitively
+  --absolute-path|-K                     Print files with absolute path.
+  --socket-file|-n [arg]                 Use this socket file (default ~/.rdm).
+  --socket-address [arg]                 Use this host:port combination (instead of --socket-file).
+  --timeout|-y [arg]                     Max time in ms to wait for job to finish (default no timeout).
+  --find-virtuals|-k                     Use in combinations with -R or -r to show other implementations of this function.
+  --find-file-prefer-exact|-A            Use to make --find-file prefer exact matches over partial matches.
+  --symbol-info-include-parents          Use to make --symbol-info include parent symbols.
+  --symbol-info-include-targets          Use to make --symbol-info include target symbols.
+  --symbol-info-include-references       Use to make --symbol-info include reference symbols.
+  --symbol-info-include-base-classes     Use to make --symbol-info include baseclasses' symbols.
+  --cursor-kind                          Include cursor kind in --find-symbols output.
+  --display-name                         Include display name in --find-symbols output.
+  --current-file [arg]                   Pass along which file is being edited to give rdm a better chance at picking the right project.
+  --declaration-only|-G                  Filter out definitions (unless inline).
+  --definition-only                      Filter out declarations (unless inline).
+  --kind-filter [arg]                    Only return results matching this kind.
+  --containing-function|-o               Include name of containing function in output.
+  --containing-function-location         Include location of containing function in output.
+  --build-index [arg]                    For sources with multiple builds, use the arg'th.
+  --compilation-flags-only               For --source, only print compilation flags.
+  --compilation-flags-split-line         For --source, print one compilation flag per line.
+  --compilation-flags-pwd                For --source, print pwd for compile command on the first line.
+  --dump-include-headers                 For --dump-file, also dump dependencies.
+  --silent-query                         Don't log this request in rdm.
+  --synchronous-completions              Wait for completion results and print them to stdout.
+  --synchronous-diagnostics              Wait for diagnostics and print them to stdout.
+  --xml                                  Output XML
+  --no-sort-references-by-input          Don't sort references by input position.
+  --project-root [arg]                   Override project root for compile commands.
+  --rtags-config [arg]                   Print out .rtags-config for argument.
+  --wildcard-symbol-names|-a             Expand * like wildcards in --list-symbols and --find-symbols.
+  --no-color|-z                          Don't colorize context.
+  --wait                                 Wait for reindexing to finish.
+  --code-complete-include-macros         Include macros in code completion results.
+  --code-complete-includes               Give includes in completion results.
+  --code-complete-no-wait                Don't wait for synchronous completion if the translation unit has to be created.
+  --code-complete-prefix [arg]           Filter out code completion results that don't start with this prefix.
+  --code-completion-enabled|-b           Inform rdm that we're code-completing. Use with --diagnose
+  --no-spell-checking                    Don't produce spell check info in diagnostics.
+  --tokens-include-symbols               Include symbols for tokens.
+  --no-realpath                          Don't resolve paths using realpath(3).
+
+No commands
+tmd@debiant:~/workstation/cos-cpp-sdk-v5$ make -nk | ~/.emacs.d/rtags/bin/
+cc_prefix.sh          gcc-rtags-hook.sh     gcc-rtags-wrapper.sh  rc                    rdm                   rp                    rtags-gcc-prefix.sh
+tmd@debiant:~/workstation/cos-cpp-sdk-v5$ make -nk | ~/.emacs.d/rtags/bin/r
+rc                   rdm                  rp                   rtags-gcc-prefix.sh  
+tmd@debiant:~/workstation/cos-cpp-sdk-v5$ make -nk | ~/.emacs.d/rtags/bin/rc -c -
+make: *** No targets specified and no makefile found.  Stop.
+/home/tmd/.emacs.d/rtags/bin/rc options...
+Options:
+  --verbose|-v                           Be more verbose.
+  --version                              Print current version.
+  --verify-version [arg]                 Verify that the correct protocol version is used.
+  --silent|-Q                            Be silent.
+  --help|-h                              Display this help.
+  --config [arg]                         Use this file (instead of ~/.rcrc).
+  --no-rc                                Don't load any rc files.
+
+Rdm:
+  --quit-rdm|-q                          Tell server to shut down with optional exit code as argument.
+  --connect-timeout [arg]                Timeout for connecting to rdm in ms (default 1000).
+
+Project management:
+  --clear|-C                             Clear projects.
+  --project|-w [optional]                With arg, select project matching that if unique, otherwise list all projects.
+  --delete-project|-W [arg]              Delete all projects matching regex.
+  --job-count|-j [optional]              Set or query current job count. (Prefix with l to set low-priority-job-count).
+
+Indexing commands:
+  --compile|-c [optional]                Pass compilation arguments to rdm.
+  --guess-flags                          Guess compile flags (used with -c).
+  --load-compile-commands|-J [optional]  Load compile_commands.json from directory
+  --suspend|-X [optional]                Dump suspended files (don't track changes in these files) with no arg. Otherwise toggle suspension for arg.
+
+Query commands:
+  --follow-location|-f [arg]             Follow this location.
+  --references-name|-R [arg]             Find references matching arg.
+  --references|-r [arg]                  Find references matching this location.
+  --list-symbols|-S [optional]           List symbol names matching arg.
+  --find-symbols|-F [optional]           Find symbols matching arg.
+  --symbol-info|-U [arg]                 Get cursor info for this location.
+  --status|-s [optional]                 Dump status of rdm. Arg can be symbols or symbolNames.
+  --diagnose [arg]                       Resend diagnostics for file.
+  --diagnose-all                         Resend diagnostics for all files.
+  --is-indexed|-T [arg]                  Check if rtags knows about, and is ready to return information about, this source file.
+  --is-indexing                          Check if rtags is currently indexing files.
+  --has-filemanager [optional]           Check if rtags has info about files in this directory.
+  --preprocess|-E [arg]                  Preprocess file.
+  --reindex|-V [optional]                Reindex all files or all files matching pattern.
+  --check-reindex|-x [optional]          Check if reindexing is necessary for all files matching pattern.
+  --path|-P [optional]                   Print files matching pattern.
+  --current-project                      Print path for current project.
+  --dump-file|-d [arg]                   Dump source file.
+  --check-includes [arg]                 Check includes for source file.
+  --dump-file-maps [arg]                 Dump file maps for file.
+  --generate-test [arg]                  Generate a test for a given source file.
+  --rdm-log|-g                           Receive logs from rdm.
+  --fixits [arg]                         Get fixits for file.
+  --remove|-D [arg]                      Remove file from project.
+  --find-project-root [arg]              Use to check behavior of find-project-root.
+  --find-project-build-root [arg]        Use to check behavior of find-project-root for builds.
+  --include-file [arg]                   Use to generate include statement for symbol.
+  --sources [optional]                   Dump sources for source file.
+  --dependencies [arg]                   Dump dependencies for source file [(includes, included-by, depends-on, depended-on, tree-depends-on, raw)].
+  --all-dependencies                     Dump dependencies for all source files [(includes, included-by, depends-on, depended-on, tree-depends-on, raw)].
+  --reload-file-manager|-B               Reload file manager.
+  --man                                  Output XML for xmltoman to generate man page for rc :-)
+  --code-complete-at|-l [arg]            Code complete at location: arg is file:line:col.
+  --send-diagnostics [arg]               Only for debugging. Send data to all -G connections.
+  --dump-completions                     Dump cached completions.
+  --dump-compile-commands                Dump compilation database for project.
+  --set-buffers [optional]               Set active buffers (list of filenames for active buffers in editor).
+  --list-buffers                         List active buffers.
+  --add-buffers [arg]                    Add additional buffers.
+  --remove-buffers [arg]                 Remove buffers.
+  --list-cursor-kinds                    List spelling for known cursor kinds.
+  --class-hierarchy [arg]                Dump class hierarcy for struct/class at location.
+  --debug-locations [optional]           Manipulate debug locations.
+  --validate                             Validate database files for current project.
+  --tokens [arg]                         Dump tokens for file. --tokens file.cpp:123-321 for range.
+
+Command flags:
+  --strip-paren|-p                       Strip parens in various contexts.
+  --max|-M [arg]                         Max lines of output for queries.
+  --reverse-sort|-O                      Sort output reversed.
+  --rename                               Used for --references to indicate that we're using the results to rename symbols.
+  --unsaved-file [arg]                   Pass unsaved file on command line. E.g. --unsaved-file=main.cpp:1200 then write 1200 bytes on stdin.
+  --log-file|-L [arg]                    Log to this file.
+  --no-context|-N                        Don't print context for locations.
+  --path-filter|-i [arg]                 Filter out results not matching with arg.
+  --dependency-filter [arg]              Filter out results unless argument depends on them.
+  --range-filter [arg]                   Filter out results not in the specified range.
+  --filter-system-headers|-H             Don't exempt system headers from path filters.
+  --all-references|-e                    Include definitions/declarations/constructors/destructors for references. Used for rename symbol.
+  --target-usrs                          Print all matching usr targets for -f. Used for debugging.
+  --all-targets                          Print multiple targets for -f. Sorted by best match.
+  --elisp|-Y                             Output elisp: (list "one" "two" ...).
+  --json                                 Output json.
+  --diagnostics|-m                       Receive async formatted diagnostics from rdm.
+  --match-regexp|-Z                      Treat various text patterns as regexps (-P, -i, -V, -F).
+  --match-icase|-I                       Match case insensitively
+  --absolute-path|-K                     Print files with absolute path.
+  --socket-file|-n [arg]                 Use this socket file (default ~/.rdm).
+  --socket-address [arg]                 Use this host:port combination (instead of --socket-file).
+  --timeout|-y [arg]                     Max time in ms to wait for job to finish (default no timeout).
+  --find-virtuals|-k                     Use in combinations with -R or -r to show other implementations of this function.
+  --find-file-prefer-exact|-A            Use to make --find-file prefer exact matches over partial matches.
+  --symbol-info-include-parents          Use to make --symbol-info include parent symbols.
+  --symbol-info-include-targets          Use to make --symbol-info include target symbols.
+  --symbol-info-include-references       Use to make --symbol-info include reference symbols.
+  --symbol-info-include-base-classes     Use to make --symbol-info include baseclasses' symbols.
+  --cursor-kind                          Include cursor kind in --find-symbols output.
+  --display-name                         Include display name in --find-symbols output.
+  --current-file [arg]                   Pass along which file is being edited to give rdm a better chance at picking the right project.
+  --declaration-only|-G                  Filter out definitions (unless inline).
+  --definition-only                      Filter out declarations (unless inline).
+  --kind-filter [arg]                    Only return results matching this kind.
+  --containing-function|-o               Include name of containing function in output.
+  --containing-function-location         Include location of containing function in output.
+  --build-index [arg]                    For sources with multiple builds, use the arg'th.
+  --compilation-flags-only               For --source, only print compilation flags.
+  --compilation-flags-split-line         For --source, print one compilation flag per line.
+  --compilation-flags-pwd                For --source, print pwd for compile command on the first line.
+  --dump-include-headers                 For --dump-file, also dump dependencies.
+  --silent-query                         Don't log this request in rdm.
+  --synchronous-completions              Wait for completion results and print them to stdout.
+  --synchronous-diagnostics              Wait for diagnostics and print them to stdout.
+  --xml                                  Output XML
+  --no-sort-references-by-input          Don't sort references by input position.
+  --project-root [arg]                   Override project root for compile commands.
+  --rtags-config [arg]                   Print out .rtags-config for argument.
+  --wildcard-symbol-names|-a             Expand * like wildcards in --list-symbols and --find-symbols.
+  --no-color|-z                          Don't colorize context.
+  --wait                                 Wait for reindexing to finish.
+  --code-complete-include-macros         Include macros in code completion results.
+  --code-complete-includes               Give includes in completion results.
+  --code-complete-no-wait                Don't wait for synchronous completion if the translation unit has to be created.
+  --code-complete-prefix [arg]           Filter out code completion results that don't start with this prefix.
+  --code-completion-enabled|-b           Inform rdm that we're code-completing. Use with --diagnose
+  --no-spell-checking                    Don't produce spell check info in diagnostics.
+  --tokens-include-symbols               Include symbols for tokens.
+  --no-realpath                          Don't resolve paths using realpath(3).
+
+No commands
+tmd@debiant:~/workstation/cos-cpp-sdk-v5$ 
+tmd@debiant:~/workstation/cos-cpp-sdk-v5$ ls
+build  CMakeLists.txt  cos-cpp-sdk.md  demo  Doxyfile  gen_lcov.sh  include  lib  LICENSE  README.md  src  unittest
+tmd@debiant:~/workstation/cos-cpp-sdk-v5$ make 
+make: *** No targets specified and no makefile found.  Stop.
+tmd@debiant:~/workstation/cos-cpp-sdk-v5$ cd build/
+tmd@debiant:~/workstation/cos-cpp-sdk-v5/build$ ls
+bin  CMakeCache.txt  CMakeFiles  cmake_install.cmake  demo  lib  Makefile  src
+tmd@debiant:~/workstation/cos-cpp-sdk-v5/build$ make -nk | ~/.emacs.d/rtags/bin/rc -c -
+tmd@debiant:~/workstation/cos-cpp-sdk-v5/build$ ls
+bin  CMakeCache.txt  CMakeFiles  cmake_install.cmake  demo  lib  Makefile  src
+tmd@debiant:~/workstation/cos-cpp-sdk-v5/build$ cd bin/
+tmd@debiant:~/workstation/cos-cpp-sdk-v5/build/bin$ ls
+tmd@debiant:~/workstation/cos-cpp-sdk-v5/build/bin$ cd ..
+tmd@debiant:~/workstation/cos-cpp-sdk-v5/build$ ls
+bin  CMakeCache.txt  CMakeFiles  cmake_install.cmake  demo  lib  Makefile  src
+tmd@debiant:~/workstation/cos-cpp-sdk-v5/build$ cd ..
+tmd@debiant:~/workstation/cos-cpp-sdk-v5$ ls
+build  CMakeLists.txt  cos-cpp-sdk.md  demo  Doxyfile  gen_lcov.sh  include  lib  LICENSE  README.md  src  unittest
+tmd@debiant:~/workstation/cos-cpp-sdk-v5$ ps aux | grep rdm
+tmd      109209  0.0  2.0 171052 20112 pts/6    Sl   20:31   0:00 ./bin/rdm
+tmd      115630  0.0  0.0  12784   944 pts/8    S+   23:53   0:00 grep rdm
+tmd@debiant:~/workstation/cos-cpp-sdk-v5$  ~/.emacs.d/rtags/bin/rc  --help
+rc options...
+Options:
+  --verbose|-v                           Be more verbose.
+  --version                              Print current version.
+  --verify-version [arg]                 Verify that the correct protocol version is used.
+  --silent|-Q                            Be silent.
+  --help|-h                              Display this help.
+  --config [arg]                         Use this file (instead of ~/.rcrc).
+  --no-rc                                Don't load any rc files.
+
+Rdm:
+  --quit-rdm|-q                          Tell server to shut down with optional exit code as argument.
+  --connect-timeout [arg]                Timeout for connecting to rdm in ms (default 1000).
+
+Project management:
+  --clear|-C                             Clear projects.
+  --project|-w [optional]                With arg, select project matching that if unique, otherwise list all projects.
+  --delete-project|-W [arg]              Delete all projects matching regex.
+  --job-count|-j [optional]              Set or query current job count. (Prefix with l to set low-priority-job-count).
+
+Indexing commands:
+  --compile|-c [optional]                Pass compilation arguments to rdm.
+  --guess-flags                          Guess compile flags (used with -c).
+  --load-compile-commands|-J [optional]  Load compile_commands.json from directory
+  --suspend|-X [optional]                Dump suspended files (don't track changes in these files) with no arg. Otherwise toggle suspension for arg.
+
+Query commands:
+  --follow-location|-f [arg]             Follow this location.
+  --references-name|-R [arg]             Find references matching arg.
+  --references|-r [arg]                  Find references matching this location.
+  --list-symbols|-S [optional]           List symbol names matching arg.
+  --find-symbols|-F [optional]           Find symbols matching arg.
+  --symbol-info|-U [arg]                 Get cursor info for this location.
+  --status|-s [optional]                 Dump status of rdm. Arg can be symbols or symbolNames.
+  --diagnose [arg]                       Resend diagnostics for file.
+  --diagnose-all                         Resend diagnostics for all files.
+  --is-indexed|-T [arg]                  Check if rtags knows about, and is ready to return information about, this source file.
+  --is-indexing                          Check if rtags is currently indexing files.
+  --has-filemanager [optional]           Check if rtags has info about files in this directory.
+  --preprocess|-E [arg]                  Preprocess file.
+  --reindex|-V [optional]                Reindex all files or all files matching pattern.
+  --check-reindex|-x [optional]          Check if reindexing is necessary for all files matching pattern.
+  --path|-P [optional]                   Print files matching pattern.
+  --current-project                      Print path for current project.
+  --dump-file|-d [arg]                   Dump source file.
+  --check-includes [arg]                 Check includes for source file.
+  --dump-file-maps [arg]                 Dump file maps for file.
+  --generate-test [arg]                  Generate a test for a given source file.
+  --rdm-log|-g                           Receive logs from rdm.
+  --fixits [arg]                         Get fixits for file.
+  --remove|-D [arg]                      Remove file from project.
+  --find-project-root [arg]              Use to check behavior of find-project-root.
+  --find-project-build-root [arg]        Use to check behavior of find-project-root for builds.
+  --include-file [arg]                   Use to generate include statement for symbol.
+  --sources [optional]                   Dump sources for source file.
+  --dependencies [arg]                   Dump dependencies for source file [(includes, included-by, depends-on, depended-on, tree-depends-on, raw)].
+  --all-dependencies                     Dump dependencies for all source files [(includes, included-by, depends-on, depended-on, tree-depends-on, raw)].
+  --reload-file-manager|-B               Reload file manager.
+  --man                                  Output XML for xmltoman to generate man page for rc :-)
+  --code-complete-at|-l [arg]            Code complete at location: arg is file:line:col.
+  --send-diagnostics [arg]               Only for debugging. Send data to all -G connections.
+  --dump-completions                     Dump cached completions.
+  --dump-compile-commands                Dump compilation database for project.
+  --set-buffers [optional]               Set active buffers (list of filenames for active buffers in editor).
+  --list-buffers                         List active buffers.
+  --add-buffers [arg]                    Add additional buffers.
+  --remove-buffers [arg]                 Remove buffers.
+  --list-cursor-kinds                    List spelling for known cursor kinds.
+  --class-hierarchy [arg]                Dump class hierarcy for struct/class at location.
+  --debug-locations [optional]           Manipulate debug locations.
+  --validate                             Validate database files for current project.
+  --tokens [arg]                         Dump tokens for file. --tokens file.cpp:123-321 for range.
+
+Command flags:
+  --strip-paren|-p                       Strip parens in various contexts.
+  --max|-M [arg]                         Max lines of output for queries.
+  --reverse-sort|-O                      Sort output reversed.
+  --rename                               Used for --references to indicate that we're using the results to rename symbols.
+  --unsaved-file [arg]                   Pass unsaved file on command line. E.g. --unsaved-file=main.cpp:1200 then write 1200 bytes on stdin.
+  --log-file|-L [arg]                    Log to this file.
+  --no-context|-N                        Don't print context for locations.
+  --path-filter|-i [arg]                 Filter out results not matching with arg.
+  --dependency-filter [arg]              Filter out results unless argument depends on them.
+  --range-filter [arg]                   Filter out results not in the specified range.
+  --filter-system-headers|-H             Don't exempt system headers from path filters.
+  --all-references|-e                    Include definitions/declarations/constructors/destructors for references. Used for rename symbol.
+  --target-usrs                          Print all matching usr targets for -f. Used for debugging.
+  --all-targets                          Print multiple targets for -f. Sorted by best match.
+  --elisp|-Y                             Output elisp: (list "one" "two" ...).
+  --json                                 Output json.
+  --diagnostics|-m                       Receive async formatted diagnostics from rdm.
+  --match-regexp|-Z                      Treat various text patterns as regexps (-P, -i, -V, -F).
+  --match-icase|-I                       Match case insensitively
+  --absolute-path|-K                     Print files with absolute path.
+  --socket-file|-n [arg]                 Use this socket file (default ~/.rdm).
+  --socket-address [arg]                 Use this host:port combination (instead of --socket-file).
+  --timeout|-y [arg]                     Max time in ms to wait for job to finish (default no timeout).
+  --find-virtuals|-k                     Use in combinations with -R or -r to show other implementations of this function.
+  --find-file-prefer-exact|-A            Use to make --find-file prefer exact matches over partial matches.
+  --symbol-info-include-parents          Use to make --symbol-info include parent symbols.
+  --symbol-info-include-targets          Use to make --symbol-info include target symbols.
+  --symbol-info-include-references       Use to make --symbol-info include reference symbols.
+  --symbol-info-include-base-classes     Use to make --symbol-info include baseclasses' symbols.
+  --cursor-kind                          Include cursor kind in --find-symbols output.
+  --display-name                         Include display name in --find-symbols output.
+  --current-file [arg]                   Pass along which file is being edited to give rdm a better chance at picking the right project.
+  --declaration-only|-G                  Filter out definitions (unless inline).
+  --definition-only                      Filter out declarations (unless inline).
+  --kind-filter [arg]                    Only return results matching this kind.
+  --containing-function|-o               Include name of containing function in output.
+  --containing-function-location         Include location of containing function in output.
+  --build-index [arg]                    For sources with multiple builds, use the arg'th.
+  --compilation-flags-only               For --source, only print compilation flags.
+  --compilation-flags-split-line         For --source, print one compilation flag per line.
+  --compilation-flags-pwd                For --source, print pwd for compile command on the first line.
+  --dump-include-headers                 For --dump-file, also dump dependencies.
+  --silent-query                         Don't log this request in rdm.
+  --synchronous-completions              Wait for completion results and print them to stdout.
+  --synchronous-diagnostics              Wait for diagnostics and print them to stdout.
+  --xml                                  Output XML
+  --no-sort-references-by-input          Don't sort references by input position.
+  --project-root [arg]                   Override project root for compile commands.
+  --rtags-config [arg]                   Print out .rtags-config for argument.
+  --wildcard-symbol-names|-a             Expand * like wildcards in --list-symbols and --find-symbols.
+  --no-color|-z                          Don't colorize context.
+  --wait                                 Wait for reindexing to finish.
+  --code-complete-include-macros         Include macros in code completion results.
+  --code-complete-includes               Give includes in completion results.
+  --code-complete-no-wait                Don't wait for synchronous completion if the translation unit has to be created.
+  --code-complete-prefix [arg]           Filter out code completion results that don't start with this prefix.
+  --code-completion-enabled|-b           Inform rdm that we're code-completing. Use with --diagnose
+  --no-spell-checking                    Don't produce spell check info in diagnostics.
+  --tokens-include-symbols               Include symbols for tokens.
+  --no-realpath                          Don't resolve paths using realpath(3).
+
+tmd@debiant:~/workstation/cos-cpp-sdk-v5$ 
+tmd@debiant:~/workstation/cos-cpp-sdk-v5$ ls
+build  CMakeLists.txt  cos-cpp-sdk.md  demo  Doxyfile  gen_lcov.sh  include  lib  LICENSE  README.md  src  unittest
+tmd@debiant:~/workstation/cos-cpp-sdk-v5$ make -nk |  ~/.emacs.d/rtags/bin/rc -c -\
+> ^C
+tmd@debiant:~/workstation/cos-cpp-sdk-v5$ make -nk |  ~/.emacs.d/rtags/bin/rc -c - 
+make: *** No targets specified and no makefile found.  Stop.
+/home/tmd/.emacs.d/rtags/bin/rc options...
+Options:
+  --verbose|-v                           Be more verbose.
+  --version                              Print current version.
+  --verify-version [arg]                 Verify that the correct protocol version is used.
+  --silent|-Q                            Be silent.
+  --help|-h                              Display this help.
+  --config [arg]                         Use this file (instead of ~/.rcrc).
+  --no-rc                                Don't load any rc files.
+
+Rdm:
+  --quit-rdm|-q                          Tell server to shut down with optional exit code as argument.
+  --connect-timeout [arg]                Timeout for connecting to rdm in ms (default 1000).
+
+Project management:
+  --clear|-C                             Clear projects.
+  --project|-w [optional]                With arg, select project matching that if unique, otherwise list all projects.
+  --delete-project|-W [arg]              Delete all projects matching regex.
+  --job-count|-j [optional]              Set or query current job count. (Prefix with l to set low-priority-job-count).
+
+Indexing commands:
+  --compile|-c [optional]                Pass compilation arguments to rdm.
+  --guess-flags                          Guess compile flags (used with -c).
+  --load-compile-commands|-J [optional]  Load compile_commands.json from directory
+  --suspend|-X [optional]                Dump suspended files (don't track changes in these files) with no arg. Otherwise toggle suspension for arg.
+
+Query commands:
+  --follow-location|-f [arg]             Follow this location.
+  --references-name|-R [arg]             Find references matching arg.
+  --references|-r [arg]                  Find references matching this location.
+  --list-symbols|-S [optional]           List symbol names matching arg.
+  --find-symbols|-F [optional]           Find symbols matching arg.
+  --symbol-info|-U [arg]                 Get cursor info for this location.
+  --status|-s [optional]                 Dump status of rdm. Arg can be symbols or symbolNames.
+  --diagnose [arg]                       Resend diagnostics for file.
+  --diagnose-all                         Resend diagnostics for all files.
+  --is-indexed|-T [arg]                  Check if rtags knows about, and is ready to return information about, this source file.
+  --is-indexing                          Check if rtags is currently indexing files.
+  --has-filemanager [optional]           Check if rtags has info about files in this directory.
+  --preprocess|-E [arg]                  Preprocess file.
+  --reindex|-V [optional]                Reindex all files or all files matching pattern.
+  --check-reindex|-x [optional]          Check if reindexing is necessary for all files matching pattern.
+  --path|-P [optional]                   Print files matching pattern.
+  --current-project                      Print path for current project.
+  --dump-file|-d [arg]                   Dump source file.
+  --check-includes [arg]                 Check includes for source file.
+  --dump-file-maps [arg]                 Dump file maps for file.
+  --generate-test [arg]                  Generate a test for a given source file.
+  --rdm-log|-g                           Receive logs from rdm.
+  --fixits [arg]                         Get fixits for file.
+  --remove|-D [arg]                      Remove file from project.
+  --find-project-root [arg]              Use to check behavior of find-project-root.
+  --find-project-build-root [arg]        Use to check behavior of find-project-root for builds.
+  --include-file [arg]                   Use to generate include statement for symbol.
+  --sources [optional]                   Dump sources for source file.
+  --dependencies [arg]                   Dump dependencies for source file [(includes, included-by, depends-on, depended-on, tree-depends-on, raw)].
+  --all-dependencies                     Dump dependencies for all source files [(includes, included-by, depends-on, depended-on, tree-depends-on, raw)].
+  --reload-file-manager|-B               Reload file manager.
+  --man                                  Output XML for xmltoman to generate man page for rc :-)
+  --code-complete-at|-l [arg]            Code complete at location: arg is file:line:col.
+  --send-diagnostics [arg]               Only for debugging. Send data to all -G connections.
+  --dump-completions                     Dump cached completions.
+  --dump-compile-commands                Dump compilation database for project.
+  --set-buffers [optional]               Set active buffers (list of filenames for active buffers in editor).
+  --list-buffers                         List active buffers.
+  --add-buffers [arg]                    Add additional buffers.
+  --remove-buffers [arg]                 Remove buffers.
+  --list-cursor-kinds                    List spelling for known cursor kinds.
+  --class-hierarchy [arg]                Dump class hierarcy for struct/class at location.
+  --debug-locations [optional]           Manipulate debug locations.
+  --validate                             Validate database files for current project.
+  --tokens [arg]                         Dump tokens for file. --tokens file.cpp:123-321 for range.
+
+Command flags:
+  --strip-paren|-p                       Strip parens in various contexts.
+  --max|-M [arg]                         Max lines of output for queries.
+  --reverse-sort|-O                      Sort output reversed.
+  --rename                               Used for --references to indicate that we're using the results to rename symbols.
+  --unsaved-file [arg]                   Pass unsaved file on command line. E.g. --unsaved-file=main.cpp:1200 then write 1200 bytes on stdin.
+  --log-file|-L [arg]                    Log to this file.
+  --no-context|-N                        Don't print context for locations.
+  --path-filter|-i [arg]                 Filter out results not matching with arg.
+  --dependency-filter [arg]              Filter out results unless argument depends on them.
+  --range-filter [arg]                   Filter out results not in the specified range.
+  --filter-system-headers|-H             Don't exempt system headers from path filters.
+  --all-references|-e                    Include definitions/declarations/constructors/destructors for references. Used for rename symbol.
+  --target-usrs                          Print all matching usr targets for -f. Used for debugging.
+  --all-targets                          Print multiple targets for -f. Sorted by best match.
+  --elisp|-Y                             Output elisp: (list "one" "two" ...).
+  --json                                 Output json.
+  --diagnostics|-m                       Receive async formatted diagnostics from rdm.
+  --match-regexp|-Z                      Treat various text patterns as regexps (-P, -i, -V, -F).
+  --match-icase|-I                       Match case insensitively
+  --absolute-path|-K                     Print files with absolute path.
+  --socket-file|-n [arg]                 Use this socket file (default ~/.rdm).
+  --socket-address [arg]                 Use this host:port combination (instead of --socket-file).
+  --timeout|-y [arg]                     Max time in ms to wait for job to finish (default no timeout).
+  --find-virtuals|-k                     Use in combinations with -R or -r to show other implementations of this function.
+  --find-file-prefer-exact|-A            Use to make --find-file prefer exact matches over partial matches.
+  --symbol-info-include-parents          Use to make --symbol-info include parent symbols.
+  --symbol-info-include-targets          Use to make --symbol-info include target symbols.
+  --symbol-info-include-references       Use to make --symbol-info include reference symbols.
+  --symbol-info-include-base-classes     Use to make --symbol-info include baseclasses' symbols.
+  --cursor-kind                          Include cursor kind in --find-symbols output.
+  --display-name                         Include display name in --find-symbols output.
+  --current-file [arg]                   Pass along which file is being edited to give rdm a better chance at picking the right project.
+  --declaration-only|-G                  Filter out definitions (unless inline).
+  --definition-only                      Filter out declarations (unless inline).
+  --kind-filter [arg]                    Only return results matching this kind.
+  --containing-function|-o               Include name of containing function in output.
+  --containing-function-location         Include location of containing function in output.
+  --build-index [arg]                    For sources with multiple builds, use the arg'th.
+  --compilation-flags-only               For --source, only print compilation flags.
+  --compilation-flags-split-line         For --source, print one compilation flag per line.
+  --compilation-flags-pwd                For --source, print pwd for compile command on the first line.
+  --dump-include-headers                 For --dump-file, also dump dependencies.
+  --silent-query                         Don't log this request in rdm.
+  --synchronous-completions              Wait for completion results and print them to stdout.
+  --synchronous-diagnostics              Wait for diagnostics and print them to stdout.
+  --xml                                  Output XML
+  --no-sort-references-by-input          Don't sort references by input position.
+  --project-root [arg]                   Override project root for compile commands.
+  --rtags-config [arg]                   Print out .rtags-config for argument.
+  --wildcard-symbol-names|-a             Expand * like wildcards in --list-symbols and --find-symbols.
+  --no-color|-z                          Don't colorize context.
+  --wait                                 Wait for reindexing to finish.
+  --code-complete-include-macros         Include macros in code completion results.
+  --code-complete-includes               Give includes in completion results.
+  --code-complete-no-wait                Don't wait for synchronous completion if the translation unit has to be created.
+  --code-complete-prefix [arg]           Filter out code completion results that don't start with this prefix.
+  --code-completion-enabled|-b           Inform rdm that we're code-completing. Use with --diagnose
+  --no-spell-checking                    Don't produce spell check info in diagnostics.
+  --tokens-include-symbols               Include symbols for tokens.
+  --no-realpath                          Don't resolve paths using realpath(3).
+
+No commands
+tmd@debiant:~/workstation/cos-cpp-sdk-v5$ ls
+build  CMakeLists.txt  cos-cpp-sdk.md  demo  Doxyfile  gen_lcov.sh  include  lib  LICENSE  README.md  src  unittest
+tmd@debiant:~/workstation/cos-cpp-sdk-v5$ make -nk |  ~/.emacs.d/rtags/bin/rc -c -
+make: *** No targets specified and no makefile found.  Stop.
+/home/tmd/.emacs.d/rtags/bin/rc options...
+Options:
+  --verbose|-v                           Be more verbose.
+  --version                              Print current version.
+  --verify-version [arg]                 Verify that the correct protocol version is used.
+  --silent|-Q                            Be silent.
+  --help|-h                              Display this help.
+  --config [arg]                         Use this file (instead of ~/.rcrc).
+  --no-rc                                Don't load any rc files.
+
+Rdm:
+  --quit-rdm|-q                          Tell server to shut down with optional exit code as argument.
+  --connect-timeout [arg]                Timeout for connecting to rdm in ms (default 1000).
+
+Project management:
+  --clear|-C                             Clear projects.
+  --project|-w [optional]                With arg, select project matching that if unique, otherwise list all projects.
+  --delete-project|-W [arg]              Delete all projects matching regex.
+  --job-count|-j [optional]              Set or query current job count. (Prefix with l to set low-priority-job-count).
+
+Indexing commands:
+  --compile|-c [optional]                Pass compilation arguments to rdm.
+  --guess-flags                          Guess compile flags (used with -c).
+  --load-compile-commands|-J [optional]  Load compile_commands.json from directory
+  --suspend|-X [optional]                Dump suspended files (don't track changes in these files) with no arg. Otherwise toggle suspension for arg.
+
+Query commands:
+  --follow-location|-f [arg]             Follow this location.
+  --references-name|-R [arg]             Find references matching arg.
+  --references|-r [arg]                  Find references matching this location.
+  --list-symbols|-S [optional]           List symbol names matching arg.
+  --find-symbols|-F [optional]           Find symbols matching arg.
+  --symbol-info|-U [arg]                 Get cursor info for this location.
+  --status|-s [optional]                 Dump status of rdm. Arg can be symbols or symbolNames.
+  --diagnose [arg]                       Resend diagnostics for file.
+  --diagnose-all                         Resend diagnostics for all files.
+  --is-indexed|-T [arg]                  Check if rtags knows about, and is ready to return information about, this source file.
+  --is-indexing                          Check if rtags is currently indexing files.
+  --has-filemanager [optional]           Check if rtags has info about files in this directory.
+  --preprocess|-E [arg]                  Preprocess file.
+  --reindex|-V [optional]                Reindex all files or all files matching pattern.
+  --check-reindex|-x [optional]          Check if reindexing is necessary for all files matching pattern.
+  --path|-P [optional]                   Print files matching pattern.
+  --current-project                      Print path for current project.
+  --dump-file|-d [arg]                   Dump source file.
+  --check-includes [arg]                 Check includes for source file.
+  --dump-file-maps [arg]                 Dump file maps for file.
+  --generate-test [arg]                  Generate a test for a given source file.
+  --rdm-log|-g                           Receive logs from rdm.
+  --fixits [arg]                         Get fixits for file.
+  --remove|-D [arg]                      Remove file from project.
+  --find-project-root [arg]              Use to check behavior of find-project-root.
+  --find-project-build-root [arg]        Use to check behavior of find-project-root for builds.
+  --include-file [arg]                   Use to generate include statement for symbol.
+  --sources [optional]                   Dump sources for source file.
+  --dependencies [arg]                   Dump dependencies for source file [(includes, included-by, depends-on, depended-on, tree-depends-on, raw)].
+  --all-dependencies                     Dump dependencies for all source files [(includes, included-by, depends-on, depended-on, tree-depends-on, raw)].
+  --reload-file-manager|-B               Reload file manager.
+  --man                                  Output XML for xmltoman to generate man page for rc :-)
+  --code-complete-at|-l [arg]            Code complete at location: arg is file:line:col.
+  --send-diagnostics [arg]               Only for debugging. Send data to all -G connections.
+  --dump-completions                     Dump cached completions.
+  --dump-compile-commands                Dump compilation database for project.
+  --set-buffers [optional]               Set active buffers (list of filenames for active buffers in editor).
+  --list-buffers                         List active buffers.
+  --add-buffers [arg]                    Add additional buffers.
+  --remove-buffers [arg]                 Remove buffers.
+  --list-cursor-kinds                    List spelling for known cursor kinds.
+  --class-hierarchy [arg]                Dump class hierarcy for struct/class at location.
+  --debug-locations [optional]           Manipulate debug locations.
+  --validate                             Validate database files for current project.
+  --tokens [arg]                         Dump tokens for file. --tokens file.cpp:123-321 for range.
+
+Command flags:
+  --strip-paren|-p                       Strip parens in various contexts.
+  --max|-M [arg]                         Max lines of output for queries.
+  --reverse-sort|-O                      Sort output reversed.
+  --rename                               Used for --references to indicate that we're using the results to rename symbols.
+  --unsaved-file [arg]                   Pass unsaved file on command line. E.g. --unsaved-file=main.cpp:1200 then write 1200 bytes on stdin.
+  --log-file|-L [arg]                    Log to this file.
+  --no-context|-N                        Don't print context for locations.
+  --path-filter|-i [arg]                 Filter out results not matching with arg.
+  --dependency-filter [arg]              Filter out results unless argument depends on them.
+  --range-filter [arg]                   Filter out results not in the specified range.
+  --filter-system-headers|-H             Don't exempt system headers from path filters.
+  --all-references|-e                    Include definitions/declarations/constructors/destructors for references. Used for rename symbol.
+  --target-usrs                          Print all matching usr targets for -f. Used for debugging.
+  --all-targets                          Print multiple targets for -f. Sorted by best match.
+  --elisp|-Y                             Output elisp: (list "one" "two" ...).
+  --json                                 Output json.
+  --diagnostics|-m                       Receive async formatted diagnostics from rdm.
+  --match-regexp|-Z                      Treat various text patterns as regexps (-P, -i, -V, -F).
+  --match-icase|-I                       Match case insensitively
+  --absolute-path|-K                     Print files with absolute path.
+  --socket-file|-n [arg]                 Use this socket file (default ~/.rdm).
+  --socket-address [arg]                 Use this host:port combination (instead of --socket-file).
+  --timeout|-y [arg]                     Max time in ms to wait for job to finish (default no timeout).
+  --find-virtuals|-k                     Use in combinations with -R or -r to show other implementations of this function.
+  --find-file-prefer-exact|-A            Use to make --find-file prefer exact matches over partial matches.
+  --symbol-info-include-parents          Use to make --symbol-info include parent symbols.
+  --symbol-info-include-targets          Use to make --symbol-info include target symbols.
+  --symbol-info-include-references       Use to make --symbol-info include reference symbols.
+  --symbol-info-include-base-classes     Use to make --symbol-info include baseclasses' symbols.
+  --cursor-kind                          Include cursor kind in --find-symbols output.
+  --display-name                         Include display name in --find-symbols output.
+  --current-file [arg]                   Pass along which file is being edited to give rdm a better chance at picking the right project.
+  --declaration-only|-G                  Filter out definitions (unless inline).
+  --definition-only                      Filter out declarations (unless inline).
+  --kind-filter [arg]                    Only return results matching this kind.
+  --containing-function|-o               Include name of containing function in output.
+  --containing-function-location         Include location of containing function in output.
+  --build-index [arg]                    For sources with multiple builds, use the arg'th.
+  --compilation-flags-only               For --source, only print compilation flags.
+  --compilation-flags-split-line         For --source, print one compilation flag per line.
+  --compilation-flags-pwd                For --source, print pwd for compile command on the first line.
+  --dump-include-headers                 For --dump-file, also dump dependencies.
+  --silent-query                         Don't log this request in rdm.
+  --synchronous-completions              Wait for completion results and print them to stdout.
+  --synchronous-diagnostics              Wait for diagnostics and print them to stdout.
+  --xml                                  Output XML
+  --no-sort-references-by-input          Don't sort references by input position.
+  --project-root [arg]                   Override project root for compile commands.
+  --rtags-config [arg]                   Print out .rtags-config for argument.
+  --wildcard-symbol-names|-a             Expand * like wildcards in --list-symbols and --find-symbols.
+  --no-color|-z                          Don't colorize context.
+  --wait                                 Wait for reindexing to finish.
+  --code-complete-include-macros         Include macros in code completion results.
+  --code-complete-includes               Give includes in completion results.
+  --code-complete-no-wait                Don't wait for synchronous completion if the translation unit has to be created.
+  --code-complete-prefix [arg]           Filter out code completion results that don't start with this prefix.
+  --code-completion-enabled|-b           Inform rdm that we're code-completing. Use with --diagnose
+  --no-spell-checking                    Don't produce spell check info in diagnostics.
+  --tokens-include-symbols               Include symbols for tokens.
+  --no-realpath                          Don't resolve paths using realpath(3).
+
+No commands
+tmd@debiant:~/workstation/cos-cpp-sdk-v5$ make -nk |  /home/tmd/.emacs.d/rtags/bin/rc -c -                                                                  
+make: *** No targets specified and no makefile found.  Stop.
+/home/tmd/.emacs.d/rtags/bin/rc options...
+Options:
+  --verbose|-v                           Be more verbose.
+  --version                              Print current version.
+  --verify-version [arg]                 Verify that the correct protocol version is used.
+  --silent|-Q                            Be silent.
+  --help|-h                              Display this help.
+  --config [arg]                         Use this file (instead of ~/.rcrc).
+  --no-rc                                Don't load any rc files.
+
+Rdm:
+  --quit-rdm|-q                          Tell server to shut down with optional exit code as argument.
+  --connect-timeout [arg]                Timeout for connecting to rdm in ms (default 1000).
+
+Project management:
+  --clear|-C                             Clear projects.
+  --project|-w [optional]                With arg, select project matching that if unique, otherwise list all projects.
+  --delete-project|-W [arg]              Delete all projects matching regex.
+  --job-count|-j [optional]              Set or query current job count. (Prefix with l to set low-priority-job-count).
+
+Indexing commands:
+  --compile|-c [optional]                Pass compilation arguments to rdm.
+  --guess-flags                          Guess compile flags (used with -c).
+  --load-compile-commands|-J [optional]  Load compile_commands.json from directory
+  --suspend|-X [optional]                Dump suspended files (don't track changes in these files) with no arg. Otherwise toggle suspension for arg.
+
+Query commands:
+  --follow-location|-f [arg]             Follow this location.
+  --references-name|-R [arg]             Find references matching arg.
+  --references|-r [arg]                  Find references matching this location.
+  --list-symbols|-S [optional]           List symbol names matching arg.
+  --find-symbols|-F [optional]           Find symbols matching arg.
+  --symbol-info|-U [arg]                 Get cursor info for this location.
+  --status|-s [optional]                 Dump status of rdm. Arg can be symbols or symbolNames.
+  --diagnose [arg]                       Resend diagnostics for file.
+  --diagnose-all                         Resend diagnostics for all files.
+  --is-indexed|-T [arg]                  Check if rtags knows about, and is ready to return information about, this source file.
+  --is-indexing                          Check if rtags is currently indexing files.
+  --has-filemanager [optional]           Check if rtags has info about files in this directory.
+  --preprocess|-E [arg]                  Preprocess file.
+  --reindex|-V [optional]                Reindex all files or all files matching pattern.
+  --check-reindex|-x [optional]          Check if reindexing is necessary for all files matching pattern.
+  --path|-P [optional]                   Print files matching pattern.
+  --current-project                      Print path for current project.
+  --dump-file|-d [arg]                   Dump source file.
+  --check-includes [arg]                 Check includes for source file.
+  --dump-file-maps [arg]                 Dump file maps for file.
+  --generate-test [arg]                  Generate a test for a given source file.
+  --rdm-log|-g                           Receive logs from rdm.
+  --fixits [arg]                         Get fixits for file.
+  --remove|-D [arg]                      Remove file from project.
+  --find-project-root [arg]              Use to check behavior of find-project-root.
+  --find-project-build-root [arg]        Use to check behavior of find-project-root for builds.
+  --include-file [arg]                   Use to generate include statement for symbol.
+  --sources [optional]                   Dump sources for source file.
+  --dependencies [arg]                   Dump dependencies for source file [(includes, included-by, depends-on, depended-on, tree-depends-on, raw)].
+  --all-dependencies                     Dump dependencies for all source files [(includes, included-by, depends-on, depended-on, tree-depends-on, raw)].
+  --reload-file-manager|-B               Reload file manager.
+  --man                                  Output XML for xmltoman to generate man page for rc :-)
+  --code-complete-at|-l [arg]            Code complete at location: arg is file:line:col.
+  --send-diagnostics [arg]               Only for debugging. Send data to all -G connections.
+  --dump-completions                     Dump cached completions.
+  --dump-compile-commands                Dump compilation database for project.
+  --set-buffers [optional]               Set active buffers (list of filenames for active buffers in editor).
+  --list-buffers                         List active buffers.
+  --add-buffers [arg]                    Add additional buffers.
+  --remove-buffers [arg]                 Remove buffers.
+  --list-cursor-kinds                    List spelling for known cursor kinds.
+  --class-hierarchy [arg]                Dump class hierarcy for struct/class at location.
+  --debug-locations [optional]           Manipulate debug locations.
+  --validate                             Validate database files for current project.
+  --tokens [arg]                         Dump tokens for file. --tokens file.cpp:123-321 for range.
+
+Command flags:
+  --strip-paren|-p                       Strip parens in various contexts.
+  --max|-M [arg]                         Max lines of output for queries.
+  --reverse-sort|-O                      Sort output reversed.
+  --rename                               Used for --references to indicate that we're using the results to rename symbols.
+  --unsaved-file [arg]                   Pass unsaved file on command line. E.g. --unsaved-file=main.cpp:1200 then write 1200 bytes on stdin.
+  --log-file|-L [arg]                    Log to this file.
+  --no-context|-N                        Don't print context for locations.
+  --path-filter|-i [arg]                 Filter out results not matching with arg.
+  --dependency-filter [arg]              Filter out results unless argument depends on them.
+  --range-filter [arg]                   Filter out results not in the specified range.
+  --filter-system-headers|-H             Don't exempt system headers from path filters.
+  --all-references|-e                    Include definitions/declarations/constructors/destructors for references. Used for rename symbol.
+  --target-usrs                          Print all matching usr targets for -f. Used for debugging.
+  --all-targets                          Print multiple targets for -f. Sorted by best match.
+  --elisp|-Y                             Output elisp: (list "one" "two" ...).
+  --json                                 Output json.
+  --diagnostics|-m                       Receive async formatted diagnostics from rdm.
+  --match-regexp|-Z                      Treat various text patterns as regexps (-P, -i, -V, -F).
+  --match-icase|-I                       Match case insensitively
+  --absolute-path|-K                     Print files with absolute path.
+  --socket-file|-n [arg]                 Use this socket file (default ~/.rdm).
+  --socket-address [arg]                 Use this host:port combination (instead of --socket-file).
+  --timeout|-y [arg]                     Max time in ms to wait for job to finish (default no timeout).
+  --find-virtuals|-k                     Use in combinations with -R or -r to show other implementations of this function.
+  --find-file-prefer-exact|-A            Use to make --find-file prefer exact matches over partial matches.
+  --symbol-info-include-parents          Use to make --symbol-info include parent symbols.
+  --symbol-info-include-targets          Use to make --symbol-info include target symbols.
+  --symbol-info-include-references       Use to make --symbol-info include reference symbols.
+  --symbol-info-include-base-classes     Use to make --symbol-info include baseclasses' symbols.
+  --cursor-kind                          Include cursor kind in --find-symbols output.
+test -s ~/bin/bladefunctions && . ~/bin/bladefunctions || true
+export GOPATH=/home/tmd/gostation
+# test aws s3 sdk go
+export AWS_ACCESS_KEY=AKIDrbAYjEBqqdEconpFi8NPFsOjrnX4LYUE
+export AWS_SECRET_KEY=gCYjhT4ThiXAbp4aw65sTs56vY2Kcooc
+
+
+#export COS_SECRETID=AKIDrbAYjEBqqdEconpFi8NPFsOjrnX4LYUE
+#export COS_SECRETKEY=gCYjhT4ThiXAbp4aw65sTs56vY2Kcooc
+# test machine ak sk
+export COS_SECRETID=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR98JM
+export COS_SECRETKEY=3yhFgx31rWzGKCuSq34yjLpBLRSHtIUU
+
+if [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+fi
+
+export  TERM=xterm-256color
+unset MAILCHECK
+~                                                                                                                                                           
+~                                                                                                                                                           
+~                                                                                                                                                           
+~                                                                                                                                                           
+~                                                                                                                                                           
+~                                                                                                                                                           
+~                                                                                                                                                           
+~                                                                                                                                                           
+~                                                                                                                                                           
+~                                                                                                                                                           
+~                                                                                                                                                           
+~                                                                                                                                                           
+~                                                                                                                                                           
+-- INSERT --                                                                                                                              2,34          All
