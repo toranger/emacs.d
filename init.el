@@ -17,6 +17,8 @@
 (package-initialize)
 ;; also can use the https://github.com/quelpa/quelpa 
 ;; elpa-mirror
+
+(add-to-list 'load-path "~/.emacs.d/elpa-mirror/")
 (require 'elpa-mirror)
 (setq elpamr-default-output-directory "~/myelpa")
 ;;(add-to-list 'package-archives '("myelpa" . "https://raw.githubusercontent.com/redguardtoo/myelpa/master/"))
