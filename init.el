@@ -4,27 +4,55 @@
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
 
+
 ;; Use the emacschina https://emacs-china.org/
+
 (require 'package)
+
+;; init
+
+
 (setq package-archives '(
                          ("myelpa" . "~/myelpa/")
                          ;; add the github for own myelpa
-                         ("mygelpa" . "https://github.com/toranger/myelpa/master")
-                         ("gnu"   . "http://elpa.emacs-china.org/gnu/")
-                         ("melpa" . "http://elpa.emacs-china.org/melpa/")
-                         ("melpa-stable" . "http://elpa.emacs-china.org/melpa-stable/")
-                         ("org" . "http://elpa.emacs-china.org/org/")
+                         ;;("mygelpa" . "https://raw.githubusercontent.com/toranger/myelpa/master")
+                         ;;("gnu"   . "http://elpa.emacs-china.org/gnu/")
+                         ;;("melpa" . "http://elpa.emacs-china.org/melpa/")
+                         ;; ("melpa-stable" . "http://elpa.emacs-china.org/melpa-stable/")
+                         ;; ("org" . "http://elpa.emacs-china.org/org/")
 
                          ))
-
-;; init
 (package-initialize)
+
+(defun require-package (package &optional min-version no-refresh)
+    "Install given PACKAGE, optionally requiring MIN-VERSION.
+If NO-REFRESH is non-nil, the available package lists will not be
+re-downloaded in order to locate PACKAGE."
+    (if (package-installed-p package min-version)
+	t
+      (if (or (assoc package package-archive-contents) no-refresh)
+	  (if (boundp 'package-selected-packages)
+	      ;; Record this as a package the user installed explicitly
+	      (package-install package nil)
+	    (package-install package))
+	(progn
+	  (package-refresh-contents)
+	  (require-package package min-version t)))))
+
+;; use the require-package first time to init the env of
+;; the package-archive-contents
+(require-package 'ivy)
+(mapc #'require-package
+      (mapcar (lambda (x) (car x)) package-archive-contents))
+
 ;; also can use the https://github.com/quelpa/quelpa 
 ;; elpa-mirror
 
 (add-to-list 'load-path "~/.emacs.d/elpa-mirror/")
+
 (require 'elpa-mirror)
 (setq elpamr-default-output-directory "~/myelpa")
+
 
 (global-auto-revert-mode 1)
 (set-language-environment "utf-8")
@@ -65,7 +93,7 @@
       ivy-format-function 'ivy-format-function-arrow
       ;; .. .
       ivy-extra-directories nil)
-(setq ffip-project-root "~/gostation/src/cos-config")
+(setq ffip-project-root "/data1/gostation/src/cos-config")
 
 
 (setq enable-recursive-minibuffers t)
@@ -136,7 +164,7 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    (quote
-    ("42b9d85321f5a152a6aef0cc8173e701f572175d6711361955ecfb4943fe93af" "ed0b4fc082715fc1d6a547650752cd8ec76c400ef72eb159543db1770a27caa7" "021720af46e6e78e2be7875b2b5b05344f4e21fad70d17af7acfd6922386b61e" "8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" default)))
+    ("7366916327c60fdf17b53b4ac7f565866c38e1b4a27345fe7facbf16b7a4e9e8" "b050365105e429cb517d98f9a267d30c89336e36b109a1723d95bc0f7ce8c11d" "42b9d85321f5a152a6aef0cc8173e701f572175d6711361955ecfb4943fe93af" "ed0b4fc082715fc1d6a547650752cd8ec76c400ef72eb159543db1770a27caa7" "021720af46e6e78e2be7875b2b5b05344f4e21fad70d17af7acfd6922386b61e" "8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" default)))
  '(line-number-mode nil)
  '(package-selected-packages
    (quote
