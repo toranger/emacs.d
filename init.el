@@ -13,13 +13,13 @@
 
 
 (setq package-archives '(
-                         ("myelpa" . "~/myelpa/")
+                         ;;("myelpa" . "~/myelpa/")
                          ;; add the github for own myelpa
                          ;;("mygelpa" . "https://raw.githubusercontent.com/toranger/myelpa/master")
-                         ;;("gnu"   . "http://elpa.emacs-china.org/gnu/")
-                         ;;("melpa" . "http://elpa.emacs-china.org/melpa/")
-                         ;; ("melpa-stable" . "http://elpa.emacs-china.org/melpa-stable/")
-                         ;; ("org" . "http://elpa.emacs-china.org/org/")
+                         ("gnu"   . "http://elpa.emacs-china.org/gnu/")
+                         ("melpa" . "http://elpa.emacs-china.org/melpa/")
+                         ("melpa-stable" . "http://elpa.emacs-china.org/melpa-stable/")
+                         ("org" . "http://elpa.emacs-china.org/org/")
 
                          ))
 (package-initialize)
@@ -42,8 +42,9 @@ re-downloaded in order to locate PACKAGE."
 ;; use the require-package first time to init the env of
 ;; the package-archive-contents
 (require-package 'ivy)
-(mapc #'require-package
-      (mapcar (lambda (x) (car x)) package-archive-contents))
+;; when first time to configure the local package need to use require-package
+;;(mapc #'require-package
+;;      (mapcar (lambda (x) (car x)) package-archive-contents))
 
 ;; also can use the https://github.com/quelpa/quelpa 
 ;; elpa-mirror
@@ -125,6 +126,7 @@ re-downloaded in order to locate PACKAGE."
 
 (global-undo-tree-mode)
 
+;; theme ------------------
 ;;(add-to-list 'custom-theme-load-path "~/.emacs.d/emacs-color-theme-solarized")
 ;;(load-theme 'solarized t)
 ;;(set-frame-parameter nil 'background-mode 'dark)
@@ -168,7 +170,7 @@ re-downloaded in order to locate PACKAGE."
  '(line-number-mode nil)
  '(package-selected-packages
    (quote
-    (company-lsp ivy-xref yasnippet gruvbox-theme ivy-hydra quelpa evil-snipe gotest golint evil-leader emamux company-go auto-complete go-eldoc go-mode treemacs git-timemachine multi-term bing-dict rainbow-delimiters smex ggtags flycheck tramp-term find-file-in-project wgrep iedit avy counsel-gtags))))
+    (gxref company-lsp ivy-xref yasnippet gruvbox-theme ivy-hydra quelpa evil-snipe gotest golint evil-leader emamux company-go auto-complete go-eldoc go-mode treemacs git-timemachine multi-term bing-dict rainbow-delimiters smex ggtags flycheck tramp-term find-file-in-project wgrep iedit avy counsel-gtags))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
