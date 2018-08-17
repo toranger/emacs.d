@@ -1,22 +1,22 @@
 
 ;; ----- smex-history -----
 (
- godef-jump
- compile
- xref-show-location-at-point
- xref-find-references
  imenu
- counsel-recentf
- counsel-ag
+ counsel-rg
+ vc-diff
+ vc-dir
+ vc-print-log
+ ediff
+ package-install
 )
 
 ;; ----- smex-data -----
 (
- (package-install . 27)
+ (package-install . 30)
  (package-delete . 1)
  (term . 4)
  (ansi-term . 2)
- (multi-term . 26)
+ (multi-term . 27)
  (describe-key . 1)
  (counsel-gtags-create-tags . 3)
  (hong/counsel-gtags-find-definition-nowait . 18)
@@ -24,31 +24,31 @@
  (describe-coding-system . 1)
  (dired . 2)
  (find-file . 1)
- (find-file-in-project . 14)
+ (find-file-in-project . 20)
  (set-variable . 3)
  (rtags-find-symbol-at-point . 15)
  (backward-sexp . 1)
  (go-goto-arguments . 1)
  (go-goto-function . 1)
  (go-goto-imports . 2)
- (godef-jump . 233)
+ (godef-jump . 241)
  (company-go . 3)
  (company-mode . 2)
  (go-mode . 4)
  (undo . 2)
- (counsel-ag . 31)
+ (counsel-ag . 196)
  (find-file-at-point . 5)
  (golint . 18)
  (golint-mode . 1)
  (rainbow-delimiters-mode . 4)
  (gotests-region . 15)
- (gotests . 7)
+ (gotests . 11)
  (flycheck-buffer . 12)
  (load-theme . 12)
  (counsel-load-theme . 4)
  (ffip . 2)
  (counsel-recentf . 6)
- (imenu . 5)
+ (imenu . 18)
  (sudo-edit . 3)
  (eval-defun . 1)
  (show-paren-mode . 1)
@@ -59,17 +59,32 @@
  (load-file . 7)
  (emamux:new-window . 3)
  (emamux:split-window . 1)
- (ggtags-find-tag-dwim . 21)
- (conf-mode . 2)
+ (ggtags-find-tag-dwim . 30)
+ (conf-mode . 5)
  (xref-find-references . 5)
- (lsp-cquery-enable . 10)
- (lsp-capabilities . 12)
+ (lsp-cquery-enable . 11)
+ (lsp-capabilities . 21)
  (lsp-format-buffer . 1)
  (xref-find-definitions . 6)
  (highlight-phrase . 1)
- (highlight-symbol-at-point . 3)
+ (highlight-symbol-at-point . 43)
  (lsp-mode . 1)
  (cquery-member-hierarchy . 2)
  (counsel-list-processes . 1)
  (xref-show-location-at-point . 2)
+ (ggtags-create-tags . 2)
+ (rgrep . 4)
+ (line-number-mode . 5)
+ (run-scheme . 2)
+ (scheme-send-last-sexp . 3)
+ (scheme-send-definition . 7)
+ (scheme-send-region . 1)
+ (magit-log . 1)
+ (magit-diff . 1)
+ (linum-mode . 2)
+ (vc-diff . 2)
+ (vc-dir . 2)
+ (vc-print-log . 2)
+ (ediff . 4)
+ (counsel-rg . 3)
 )

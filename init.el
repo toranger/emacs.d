@@ -10,16 +10,16 @@
 (require 'package)
 
 ;; init
-
+(setq scheme-program-name "guile") 
 
 (setq package-archives '(
-                         ;;("myelpa" . "~/myelpa/")
+                         ("myelpa" . "~/myelpa/")
                          ;; add the github for own myelpa
                          ;;("mygelpa" . "https://raw.githubusercontent.com/toranger/myelpa/master")
-                         ("gnu"   . "http://elpa.emacs-china.org/gnu/")
-                         ("melpa" . "http://elpa.emacs-china.org/melpa/")
-                         ("melpa-stable" . "http://elpa.emacs-china.org/melpa-stable/")
-                         ("org" . "http://elpa.emacs-china.org/org/")
+                         ;;("gnu"   . "http://elpa.emacs-china.org/gnu/")
+                         ;;("melpa" . "http://elpa.emacs-china.org/melpa/")
+                         ;;("melpa-stable" . "http://elpa.emacs-china.org/melpa-stable/")
+                         ;;("org" . "http://elpa.emacs-china.org/org/")
 
                          ))
 (package-initialize)
@@ -43,8 +43,8 @@ re-downloaded in order to locate PACKAGE."
 ;; the package-archive-contents
 (require-package 'ivy)
 ;; when first time to configure the local package need to use require-package
-;;(mapc #'require-package
-;;      (mapcar (lambda (x) (car x)) package-archive-contents))
+(mapc #'require-package
+     (mapcar (lambda (x) (car x)) package-archive-contents))
 
 ;; also can use the https://github.com/quelpa/quelpa 
 ;; elpa-mirror
@@ -93,8 +93,10 @@ re-downloaded in order to locate PACKAGE."
       ivy-use-virtual-buffers t
       ivy-format-function 'ivy-format-function-arrow
       ;; .. .
-      ivy-extra-directories nil)
-(setq ffip-project-root "/data1/gostation/src/cos-config")
+      ;;ivy-extra-directories t
+)
+;; change the dir for you project root dir
+(setq ffip-project-root "/home/alantong/gostation/src/cos-config")
 
 
 (setq enable-recursive-minibuffers t)
@@ -170,7 +172,7 @@ re-downloaded in order to locate PACKAGE."
  '(line-number-mode nil)
  '(package-selected-packages
    (quote
-    (gxref company-lsp ivy-xref yasnippet gruvbox-theme ivy-hydra quelpa evil-snipe gotest golint evil-leader emamux company-go auto-complete go-eldoc go-mode treemacs git-timemachine multi-term bing-dict rainbow-delimiters smex ggtags flycheck tramp-term find-file-in-project wgrep iedit avy counsel-gtags))))
+    (exec-path-from-shell exec gxref company-lsp ivy-xref yasnippet gruvbox-theme ivy-hydra quelpa evil-snipe gotest golint evil-leader emamux company-go auto-complete go-eldoc go-mode treemacs git-timemachine multi-term bing-dict rainbow-delimiters smex ggtags flycheck tramp-term find-file-in-project wgrep iedit avy counsel-gtags))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -283,7 +285,33 @@ re-downloaded in order to locate PACKAGE."
              :commands lsp-cquery-enable
                  :init (add-hook 'c-mode-common-hook #'cquery//enable))
 
+;; gxref other server part use GTAGS
+(add-to-list 'xref-backend-functions 'gxref-xref-backend)
+;; gtags config
+(getenv "GTAGSFORCECPP")
+(setenv "GTAGSFORCECPP" "1")
+
 
 ;; YASnippet
 (require 'yasnippet)
 (yas-global-mode 1)
+
+;; the GUI envirment
+
+
+;; other bash env
+(defun set-exec-path-from-shell-PATH ()
+  (let ((path-from-shell (replace-regexp-in-string
+                          "[ \t\n]*$"
+                          ""
+                          (shell-command-to-string "$SHELL --login -i -c 'echo $PATH'"))))
+    (setenv "PATH" path-from-shell)
+    (setq eshell-path-env path-from-shell) ; for eshell users
+    (setq exec-path (split-string path-from-shell path-separator))))
+
+(when window-system (set-exec-path-from-shell-PATH))
+
+
+;;;ediff
+(setq ediff-split-window-function 'split-window-horizontally)
+(setq ediff-window-setup-function  'ediff-setup-windows-plain)
