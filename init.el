@@ -13,13 +13,13 @@
 
 
 (setq package-archives '(
-                         ;;("myelpa" . "~/myelpa/")
+                         ("myelpa" . "~/myelpa/")
                          ;; add the github for own myelpa
                          ;;("mygelpa" . "https://raw.githubusercontent.com/toranger/myelpa/master")
-                         ("gnu"   . "http://elpa.emacs-china.org/gnu/")
-                         ("melpa" . "http://elpa.emacs-china.org/melpa/")
-                         ("melpa-stable" . "http://elpa.emacs-china.org/melpa-stable/")
-                         ("org" . "http://elpa.emacs-china.org/org/")
+                         ;;("gnu"   . "http://elpa.emacs-china.org/gnu/")
+                         ;;("melpa" . "http://elpa.emacs-china.org/melpa/")
+                         ;;("melpa-stable" . "http://elpa.emacs-china.org/melpa-stable/")
+                         ;;("org" . "http://elpa.emacs-china.org/org/")
 
                          ))
 (package-initialize)
@@ -43,8 +43,8 @@ re-downloaded in order to locate PACKAGE."
 ;; the package-archive-contents
 (require-package 'ivy)
 ;; when first time to configure the local package need to use require-package
-;;(mapc #'require-package
-;;      (mapcar (lambda (x) (car x)) package-archive-contents))
+(mapc #'require-package
+      (mapcar (lambda (x) (car x)) package-archive-contents))
 
 ;; also can use the https://github.com/quelpa/quelpa 
 ;; elpa-mirror
@@ -94,7 +94,7 @@ re-downloaded in order to locate PACKAGE."
       ivy-format-function 'ivy-format-function-arrow
       ;; .. .
       ivy-extra-directories nil)
-(setq ffip-project-root "/data1/gostation/src/cos-config")
+(setq ffip-project-root "/home/tmd/gostation/src/cos-config")
 
 
 (setq enable-recursive-minibuffers t)
@@ -121,6 +121,7 @@ re-downloaded in order to locate PACKAGE."
   "n" 'xref-find-definitions
   "m" 'xref-pop-marker-stack
   "g" 'godef-jump
+  "l" 'linum-mode
 )
 
 

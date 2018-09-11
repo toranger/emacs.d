@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
- godef-jump
- compile
- xref-show-location-at-point
- xref-find-references
+ find-file-in-project
+ highlight-symbol-at-point
+ man
+ unhighlight-regexp
+ abort-recursive-edit
+ ediff
  imenu
- counsel-recentf
- counsel-ag
 )
 
 ;; ----- smex-data -----
@@ -24,7 +24,7 @@
  (describe-coding-system . 1)
  (dired . 2)
  (find-file . 1)
- (find-file-in-project . 14)
+ (find-file-in-project . 24)
  (set-variable . 3)
  (rtags-find-symbol-at-point . 15)
  (backward-sexp . 1)
@@ -35,8 +35,8 @@
  (company-go . 3)
  (company-mode . 2)
  (go-mode . 4)
- (undo . 2)
- (counsel-ag . 31)
+ (undo . 3)
+ (counsel-ag . 69)
  (find-file-at-point . 5)
  (golint . 18)
  (golint-mode . 1)
@@ -48,7 +48,7 @@
  (counsel-load-theme . 4)
  (ffip . 2)
  (counsel-recentf . 6)
- (imenu . 5)
+ (imenu . 9)
  (sudo-edit . 3)
  (eval-defun . 1)
  (show-paren-mode . 1)
@@ -67,9 +67,16 @@
  (lsp-format-buffer . 1)
  (xref-find-definitions . 6)
  (highlight-phrase . 1)
- (highlight-symbol-at-point . 3)
+ (highlight-symbol-at-point . 51)
  (lsp-mode . 1)
  (cquery-member-hierarchy . 2)
  (counsel-list-processes . 1)
  (xref-show-location-at-point . 2)
+ (org-mode . 2)
+ (counsel-rg . 2)
+ (line-number-mode . 1)
+ (ediff . 2)
+ (abort-recursive-edit . 1)
+ (unhighlight-regexp . 1)
+ (man . 1)
 )
