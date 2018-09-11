@@ -78,10 +78,15 @@ re-downloaded in order to locate PACKAGE."
 (require 'go-mode)(add-hook 'before-save-hook 'gofmt-before-save)
 (require 'gotests)
 
+
+;; the basic set of emacs
 (set-face-attribute 'default nil :height 110)
 (tool-bar-mode -1)
 (menu-bar-mode -1)
 (scroll-bar-mode -1)
+(show-paren-mode 1)
+(setq show-paren-delay 0)
+(blink-cursor-mode 0)
 
 
 (add-to-list 'load-path (concat (getenv "GOPATH")  "/src/github.com/golang/lint/misc/emacs"))
@@ -96,7 +101,7 @@ re-downloaded in order to locate PACKAGE."
       ;;ivy-extra-directories t
 )
 ;; change the dir for you project root dir
-(setq ffip-project-root "/home/alantong/gostation/src/cos-config")
+;; (setq ffip-project-root "/home/alantong/gostation/src/cos-config")
 
 
 (setq enable-recursive-minibuffers t)
@@ -123,6 +128,7 @@ re-downloaded in order to locate PACKAGE."
   "n" 'xref-find-definitions
   "m" 'xref-pop-marker-stack
   "g" 'godef-jump
+  "q" 'find-file-in-project
 )
 
 
