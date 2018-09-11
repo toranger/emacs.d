@@ -10,7 +10,7 @@
 (require 'package)
 
 ;; init
-
+(setq scheme-program-name "guile") 
 
 (setq package-archives '(
                          ("myelpa" . "~/myelpa/")
@@ -44,7 +44,7 @@ re-downloaded in order to locate PACKAGE."
 (require-package 'ivy)
 ;; when first time to configure the local package need to use require-package
 (mapc #'require-package
-      (mapcar (lambda (x) (car x)) package-archive-contents))
+     (mapcar (lambda (x) (car x)) package-archive-contents))
 
 ;; also can use the https://github.com/quelpa/quelpa 
 ;; elpa-mirror
@@ -78,10 +78,15 @@ re-downloaded in order to locate PACKAGE."
 (require 'go-mode)(add-hook 'before-save-hook 'gofmt-before-save)
 (require 'gotests)
 
+
+;; the basic set of emacs
 (set-face-attribute 'default nil :height 110)
 (tool-bar-mode -1)
 (menu-bar-mode -1)
 (scroll-bar-mode -1)
+(show-paren-mode 1)
+(setq show-paren-delay 0)
+(blink-cursor-mode 0)
 
 
 (add-to-list 'load-path (concat (getenv "GOPATH")  "/src/github.com/golang/lint/misc/emacs"))
@@ -93,8 +98,10 @@ re-downloaded in order to locate PACKAGE."
       ivy-use-virtual-buffers t
       ivy-format-function 'ivy-format-function-arrow
       ;; .. .
-      ivy-extra-directories nil)
-(setq ffip-project-root "/home/tmd/gostation/src/cos-config")
+      ;;ivy-extra-directories t
+)
+;; change the dir for you project root dir
+;; (setq ffip-project-root "/home/alantong/gostation/src/cos-config")
 
 
 (setq enable-recursive-minibuffers t)
@@ -122,6 +129,7 @@ re-downloaded in order to locate PACKAGE."
   "m" 'xref-pop-marker-stack
   "g" 'godef-jump
   "l" 'linum-mode
+  "q" 'find-file-in-project
 )
 
 
@@ -171,7 +179,7 @@ re-downloaded in order to locate PACKAGE."
  '(line-number-mode nil)
  '(package-selected-packages
    (quote
-    (gxref company-lsp ivy-xref yasnippet gruvbox-theme ivy-hydra quelpa evil-snipe gotest golint evil-leader emamux company-go auto-complete go-eldoc go-mode treemacs git-timemachine multi-term bing-dict rainbow-delimiters smex ggtags flycheck tramp-term find-file-in-project wgrep iedit avy counsel-gtags))))
+    (exec-path-from-shell exec gxref company-lsp ivy-xref yasnippet gruvbox-theme ivy-hydra quelpa evil-snipe gotest golint evil-leader emamux company-go auto-complete go-eldoc go-mode treemacs git-timemachine multi-term bing-dict rainbow-delimiters smex ggtags flycheck tramp-term find-file-in-project wgrep iedit avy counsel-gtags))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -284,7 +292,33 @@ re-downloaded in order to locate PACKAGE."
              :commands lsp-cquery-enable
                  :init (add-hook 'c-mode-common-hook #'cquery//enable))
 
+;; gxref other server part use GTAGS
+(add-to-list 'xref-backend-functions 'gxref-xref-backend)
+;; gtags config
+(getenv "GTAGSFORCECPP")
+(setenv "GTAGSFORCECPP" "1")
+
 
 ;; YASnippet
 (require 'yasnippet)
 (yas-global-mode 1)
+
+;; the GUI envirment
+
+
+;; other bash env
+(defun set-exec-path-from-shell-PATH ()
+  (let ((path-from-shell (replace-regexp-in-string
+                          "[ \t\n]*$"
+                          ""
+                          (shell-command-to-string "$SHELL --login -i -c 'echo $PATH'"))))
+    (setenv "PATH" path-from-shell)
+    (setq eshell-path-env path-from-shell) ; for eshell users
+    (setq exec-path (split-string path-from-shell path-separator))))
+
+(when window-system (set-exec-path-from-shell-PATH))
+
+
+;;;ediff
+(setq ediff-split-window-function 'split-window-horizontally)
+(setq ediff-window-setup-function  'ediff-setup-windows-plain)
