@@ -322,3 +322,16 @@ re-downloaded in order to locate PACKAGE."
 ;;;ediff
 (setq ediff-split-window-function 'split-window-horizontally)
 (setq ediff-window-setup-function  'ediff-setup-windows-plain)
+
+
+;;change the header with soucre
+; (ff-find-related-file &optional IN-OHTER-WINDOW IGNORE-INCLUDE)
+
+;; related file
+(setq-local cc-search-directories
+            '("." ".."
+              "../inc" "../Inc"
+              "../include" "../Include"
+              "../src" "../source"
+              "../Src" "../Source"
+              "/usr/include" "/usr/local/include/"))
