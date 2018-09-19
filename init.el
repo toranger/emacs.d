@@ -130,6 +130,7 @@ re-downloaded in order to locate PACKAGE."
   "g" 'godef-jump
   "l" 'linum-mode
   "q" 'find-file-in-project
+  "h" 'ff-find-other-file
 )
 
 
@@ -211,7 +212,6 @@ re-downloaded in order to locate PACKAGE."
             (lambda () (when (equal (buffer-name) "*Calculator*") 9)))
 
 ;;multi-term
-
 (autoload 'multi-term-prev "multi-term" nil t)
 (autoload 'multi-term-next "multi-term" nil t)
 (autoload 'multi-term "multi-term" nil t)
@@ -328,10 +328,21 @@ re-downloaded in order to locate PACKAGE."
 ; (ff-find-related-file &optional IN-OHTER-WINDOW IGNORE-INCLUDE)
 
 ;; related file
-(setq-local cc-search-directories
+;; why setq-local can not use, but setq can
+(setq cc-other-file-alist
+      '(("\\.c"   (".h"))
+        ("\\.cpp"   (".h"))
+               ("\\.h"   (".c"".cpp"))))
+
+(setq cc-search-directories
             '("." ".."
               "../inc" "../Inc"
               "../include" "../Include"
               "../src" "../source"
               "../Src" "../Source"
+              "../../src" "../../source"
+              "../../Src" "../../Source"
+              ;; "../../include/op" "../../include/request"
+              ;; "../../src/op" "../../src/request"
               "/usr/include" "/usr/local/include/"))
+
